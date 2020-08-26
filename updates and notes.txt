@@ -1,0 +1,82 @@
+#START
+LANDING page RELATED
+adjusted form-box width from 380 to 420
+
+added input[type="password"]
+adjusted the padding
+added tab indexes
+#END
+
+#START
+PRODUCT registration page related
+added tab indexes
+changed title from CSS Template to Product Registration Template
+#END
+
+#START
+PERSONAL INFORMATION 
+EmployeeID auto
+FirstName 1
+MiddleName
+LastName
+Birthday 1
+Street 2
+Brgy
+City
+Prov
+Zip
+Country 2
+Height 3
+Weight
+Religion
+Gender
+Status 3
+Spouse's Name 4
+Spouse Occupation
+No of Children
+Mother's Name
+Mother's Occupation
+Father's Name
+Father's Occupation 4
+#END
+
+#START
+EDUCATIONAL BACKGROUND
+Elementary: 5
+School
+Grade
+Year Completed
+Awards 5
+Junior High School: 6
+School
+Grade
+Year Completed
+Awards 6
+Senior High School: 7
+School 
+Grade
+Year Completed
+Awards
+Strand 7
+College: 8
+School
+Course
+Level
+Year Completed
+Awards 8
+Post Graduate: 9
+School
+Course
+Level
+Year Completed
+Awards 9
+#END
+
+#START
+PROFESSIONAL BACKGROUND 10
+Trainings:
+Title
+Sponsor
+Date
+Venue
+#END 10

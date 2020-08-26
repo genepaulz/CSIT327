@@ -1,34 +1,266 @@
 <html>
 <head>
 <title>Customer Registration</title>
-<link rel="stylesheet" href="bootstrap/css/bootstrap.css">
-<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="stepper.css">
 </head>
-<body class="welcome">
-	<div class="container">
-		
+<body>
+	<div class="welcome">
+		<main>
+			<div class="stepper">
+			  <div class="step--1 step-active">Step 1</div>
+			  <div class="step--2">Step 2</div>
+			  <div class="step--3">Step 3</div>
+			  <div class="step--4">Step 4</div>
+			  <div class="step--5">Step 5</div>
+			  <div class="step--6">Step 6</div>
+			  <div class="step--7">Step 7</div>
+			  <div class="step--8">Step 8</div>
+			  <div class="step--9">Step 9</div>
+			  <div class="step--10">Step 10</div>
+			  <div class="step--11">Finish</div>
+			</div>
+
+			<form class="form form-active">
+			  <div class="form--header-container">
+				<h1 class="form--header-title">
+				  Registration
+				</h1>
+		  
+				<p class="form--header-text">
+				  Please input the necessary details.
+				</p>
+			  </div>
+			  <input type="text" id="email" placeholder="Email" />
+			  <input type="text" id="pass" placeholder="Password" />
+			  <input type="text" id="fname" placeholder="First Name" />			  
+			  <input type="text" id="mname" placeholder="Middle Name" />
+			  <input type="text" id="lname" placeholder="Last Name" />
+			  <label for="bday" id="lblbday">Birthday:</label>
+			  <input type="date" id="bday"/>
+			  <button class="form__btn" id="btn-1">Next</button>
+			</form>
+
+			<form class="form">
+			  <div class="form--header-container">
+				<h1 class="form--header-title">
+					Registration
+				</h1>
+		  
+				<p class="form--header-text">
+					Tell us where you live.
+				</p>
+			  </div>
+		  
+			  <input type="text" id="street" placeholder="Street" />
+			  <input type="text" id="brgy" placeholder="Barangay" />
+			  <input type="text" id="city" placeholder="City" />
+			  <input type="text" id="prov" placeholder="Provice" />
+			  <input type="number" id="zip" placeholder="Zip Code" />
+			  <input type="text" id="country" placeholder="Country" />
+			  <button class="form__btn" id="btn-2-prev">Previous</button>
+			  <button class="form__btn" id="btn-2-next">Next</button>
+			</form>
+
+			<form class="form">
+				<div class="form--header-container">
+				  <h1 class="form--header-title">
+					  Registration
+				  </h1>
 			
+				  <p class="form--header-text">
+					  Tell us about yourself.
+				  </p>
+				</div>
+			
+				<input type="number" id="height" placeholder="Height(m)" />
+				<input type="number" id="weight" placeholder="Weight(kg)" />
+				<input type="text" id="religion" placeholder="Religion" />
+				<label for="gender" id="lblgender">Gender:</label>
+				<select name="gender" id="gender">
+				<option value="Male">Male</option>
+				<option value="Female">Female</option>
+				</select><br>
+				<label for="status" id="lblstatus">Status:</label>
+				<select name="status" id="status">
+				<option value="Single">Single</option>
+				<option value="Married">Married</option>
+				</select>
+			  <button class="form__btn" id="btn-3-prev">Previous</button>
+			  <button class="form__btn" id="btn-3-next">Next</button>
+			</form>
+
+			<form class="form">
+			  <div class="form--header-container">
+				<h1 class="form--header-title">
+					Registration
+				</h1>
+		  
+				<p class="form--header-text">
+					Tell us about your family. (Only Applicable)
+				</p>
+			  </div>
+			  <input type="text" id="sname" placeholder="Spouse's Name" />
+			  <input type="text" id="socc" placeholder="Spouse's Occupation" />
+			  <input type="number" id="noc" placeholder="No. of Children" />
+			  <input type="text" id="moname" placeholder="Mother's Name" />
+			  <input type="text" id="moocc" placeholder="Mother's Occupation" />
+			  <input type="text" id="faname" placeholder="Father's Name" />
+			  <input type="text" id="faocc" placeholder="Father's Occupation" />
+			  <button class="form__btn" id="btn-4-prev">Previous</button>
+			  <button class="form__btn" id="btn-4-next">Next</button>
+			</form>
+			
+
+			<form class="form">
+				<div class="form--header-container">
+				  <h1 class="form--header-title">
+					  Educational Background
+				  </h1>
+			
+				  <p class="form--header-text">
+					  Elementary
+				  </p>
+				</div>
+				<input type="text" class="school" placeholder="School" />
+				<input type="number" class="grade" placeholder="Grade" />
+				<input type="number" class="year" placeholder="Year Completed" /><br>
+				<label for="eawards" class="awards">Awards:(image)</label><br>
+				<input type="file" id="eawards" accept=image/* /><br>
+				<button class="form__btn" id="btn-5-prev">Previous</button>
+				<button class="form__btn" id="btn-5-next">Next</button>
+			  </form>
+			  
+
+			  <form class="form">
+				<div class="form--header-container">
+				  <h1 class="form--header-title">
+					  Educational Background
+				  </h1>
+			
+				  <p class="form--header-text">
+					  Junior Highschool
+				  </p>
+				</div>
+				<input type="text" class="school" placeholder="School" />
+				<input type="number" class="grade" placeholder="Grade" />
+				<input type="number" class="year" placeholder="Year Completed" /><br>
+				<label for="jawards" class="awards">Awards:(image)</label><br>
+				<input type="file" id="jawards" accept=image/* /><br>
+				<button class="form__btn" id="btn-6-prev">Previous</button>
+				<button class="form__btn" id="btn-6-next">Next</button>
+			  </form>
+			  
+
+			  <form class="form">
+				<div class="form--header-container">
+				  <h1 class="form--header-title">
+					  Educational Background
+				  </h1>
+			
+				  <p class="form--header-text">
+					  Senior Highschool
+				  </p>
+				</div>
+				<input type="text" class="school" placeholder="School" />
+				<input type="number" class="grade" placeholder="Grade" />
+				<input type="number" class="year" placeholder="Year Completed" /><br>
+				<label for="sawards" class="awards">Awards:(image)</label><br>
+				<input type="file" id="sawards" accept=image/* /><br>
+				<input type="text" id="strand" placeholder="Strand" />
+				<button class="form__btn" id="btn-7-prev">Previous</button>
+				<button class="form__btn" id="btn-7-next">Next</button>
+			  </form>
+
+			  <form class="form">
+				<div class="form--header-container">
+				  <h1 class="form--header-title">
+					  Educational Background
+				  </h1>
+			
+				  <p class="form--header-text">
+					  College
+				  </p>
+				</div>
+				<input type="text" class="school" placeholder="School" />
+				<input type="text" class="course" placeholder="Course" />
+				<input type="number" class="grade" placeholder="Level" />
+				<input type="number" class="year" placeholder="Year Completed" /><br>
+				<label for="cawards" class="awards">Awards:(image)</label><br>
+				<input type="file" id="cawards" accept=image/* /><br>
+				
+				<button class="form__btn" id="btn-8-prev">Previous</button>
+				<button class="form__btn" id="btn-8-next">Next</button>
+			  </form>
+
+			  <form class="form">
+				<div class="form--header-container">
+				  <h1 class="form--header-title">
+					  Educational Background
+				  </h1>
+			
+				  <p class="form--header-text">
+					  Post Graduate
+				  </p>
+				</div>
+				<input type="text" class="school" placeholder="School" />
+				<input type="text" class="course" placeholder="Course" />
+				<input type="number" class="grade" placeholder="Level" />
+				<input type="number" class="year" placeholder="Year Completed" /><br>
+				<label for="pawards" class="awards">Awards:(image)</label><br>
+				<input type="file" id="pawards" accept=image/* /><br>				
+				<button class="form__btn" id="btn-9-prev">Previous</button>
+				<button class="form__btn" id="btn-9-next">Next</button>
+			  </form>
+
+			  <form class="form">
+				<div class="form--header-container">
+				  <h1 class="form--header-title">
+					  Professional Background
+				  </h1>
+			
+				  <p class="form--header-text">
+					  Trainings
+				  </p>
+				</div>
+				<input type="text" id="title" placeholder="Title" />
+				<input type="text" id="sponsor" placeholder="Sponsor" />
+				<label for="pawards" class="lbl">Date:</label>
+				<input type="date" id="tdate"/>
+				<input type="text" id="venue" placeholder="Venue" />
+				
+				
+				
+				<button class="form__btn" id="btn-10-prev">Previous</button>
+				<button class="form__btn" id="btn-10">Submit</button>
+			  </form>
+
+			  
+			  <div class="form--message"></div>
+			<script src="stepper.js"></script>
+		  </main>
+
+
+
+		<div class="square">
+			<ul>
+				<li></li>
+				<li></li>
+				<li></li>
+				<li></li>
+				<li></li>
+			</ul>
+		</div>
 		
-	</div>
-    <!--Animation-->
-    <div class="square">
-		<ul>
-			<li></li>
-			<li></li>
-			<li></li>
-			<li></li>
-			<li></li>
-		</ul>
+		<div class="circle">
+			<ul>
+				<li></li>
+				<li></li>
+				<li></li>
+				<li></li>
+				<li></li>
+			</ul>
+		</div>
 	</div>
 	
-	<div class="circle">
-		<ul>
-			<li></li>
-			<li></li>
-			<li></li>
-			<li></li>
-			<li></li>
-		</ul>
-	</div>
 </body>
 </html>

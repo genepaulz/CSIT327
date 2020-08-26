@@ -57,7 +57,7 @@
 	opacity: 0;
 	top: 0;
 	right: -20px;
-	transtion: 0.5s;
+	transition: 0.5s;
 }
 
 .button2{
@@ -106,7 +106,7 @@
 	opacity: 0;
 	top: 0;
 	right: -20px;
-	transtion: 0.5s;
+	transition: 0.5s;
 }
 
 .form-box{
@@ -114,7 +114,7 @@
 	left: 75%;
 	transform: translate(-50%,-50%);
 	z-index: 1;
-	width: 380px;
+	width: 420px;	
 	height: 200px;
 	position: absolute;
 	margin: 6% auto;
@@ -142,7 +142,7 @@
 	border-bottom: 1px solid #999;
 	outline: none;
 	background: transparent;
-	
+	border-radius: 0.4rem;
 }
 
 
@@ -259,6 +259,3 @@ ul li{
 		border-radius: 50%;
 	}
 }
-
-
-
