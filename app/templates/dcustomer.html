@@ -1,0 +1,127 @@
+<html>
+    <head>
+        <title>Dashboard</title>
+        {% load static %}
+        <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}"> 
+        <link rel="stylesheet" href="{% static 'css/dcustomer.css' %}">
+    </head>
+    <body>
+        <div class="background">
+                
+                <div class="top-bar">
+                    <a href="{% url 'app:dashboard_view' %}">
+                        <p class="nbutton">&#8592;</p>
+                    </a>
+                   
+                    <p class="h1">Welcome Admin!</p><br>
+                    <button class="button" id="customerButton">Customer Report</button>
+                    <a href="{% url 'app:reg_customers_view' %}"><button class="button">Add Customer</button></a>
+                </div>              
+                    
+                <div class="content" id="content">
+                    <table border="1px">
+                        <tr>
+                            <th>Date Registered</th>
+                            <th>Firstname</th>
+                            <th>Lastname</th>
+                            <th>Date of Birth</th>
+                            <th>Address</th>
+                            <th></th>
+                            <th></th>
+                        </tr>
+                        {% for customer in customers %}
+                        <tr>
+                            <td>{{customer.dateregistered}}</td>
+                            <td>{{customer.firstname}}</td>
+                            <td>{{customer.lastname}}</td>
+                            <td>{{customer.birthday}}</td>
+                            <td>{{customer.street}}</td>
+                            <td><button type="button" class="button" data-toggle="modal" data-target="#{{customer.id}}">Update</button></td>
+                            <td><button type="button" class="button" data-toggle="modal" data-target="#d{{customer.id}}">Delete</button></td>
+                        </tr>
+                        {% endfor %}
+                        </table>
+                </div>
+
+<form action="" method="POST" id=action>
+  {% for customer in customers %}
+  <!-- Modal Update -->
+  <div class="modal fade" id="{{customer.id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLongTitle">Modal title</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+        <input type="text" name="cid" value="{{customer.id}}" hidden>
+          {{customer.id}}        
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          <button type="submit" class="btn btn-primary">Save changes</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal Delete -->
+  <div class="modal fade" id="d{{customer.id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLongTitle">Are you sure?</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>        
+        <div class="modal-footer">
+            <input type="text" name="cid" value="{{customer.id}}" hidden>
+            <button type="submit" class="btn btn-primary">Yes</button>
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">No</button>          
+        </div>
+      </div>
+    </div>
+  </div>
+  {% endfor %}
+</form>               
+
+                
+            
+            <div class="square">
+                <ul>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                </ul>
+            </div>
+            
+            <div class="circle">
+                <ul>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                </ul>
+            </div>
+        </div>
+        <script src="{% static 'js/dcustomer.js' %}"></script>
+        <script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
+        <script src="{% static 'js/bootstrap.min.js' %}"></script>
+        <script>
+          $( document ).ready(function() {
+             if('{{message}}' != ""){
+              alert( '{{message}}' );
+             }
+          });
+        </script>
+    </body>
+    <footer>
+	ZAFRA
+    </footer>
+</html>

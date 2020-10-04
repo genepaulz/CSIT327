@@ -1,0 +1,95 @@
+<html>
+<head>
+<title>Customer Registration</title>
+{% load static %}
+<link rel="stylesheet" href="{% static 'css/rcustomer.css' %}">
+</head>
+<body>
+	<div class="welcome">
+		<form class="" action="" method="POST" enctype="multipart/form-data" autocomplete="off">
+			{% csrf_token %}
+		<main>
+			<div class="stepper">
+			  <div class="step--1 step-active">Step 1</div>
+			  <div class="step--2">Step 2</div>			  
+			</div>
+
+			
+			<div class="form form-active">
+				<div class="form--header-container">
+					<h1 class="form--header-title">
+					Registration
+					</h1>
+			
+					<p class="form--header-text">
+					Please input the necessary details.
+					</p>
+				</div>
+				
+				<input type="text" id="email" name="email" placeholder="Email" required/>
+				<input type="password" id="pass" name="password" placeholder="Password" required/>
+				<input type="text" id="fname" name="firstname" placeholder="First Name" required/>			  
+				<input type="text" id="mname" name="middlename" placeholder="Middle Name" />
+				<input type="text" id="lname" name="lastname" placeholder="Last Name" required/>
+				<label for="bday" id="lblbday">Birthday:</label>
+				<input type="date" id="bday" name="birthday"required/><br>
+				<label for="gender" id="lblgender">Gender:</label>
+				<select id="gender" name="gender" >
+				<option value="Male">Male</option>
+				<option value="Female">Female</option>
+				<option value="NonBinary">NonBinary</option>
+				</select><br>
+				<button class="form__btn" id="btn-1">Next</button>
+			</div>
+
+			<div class="form">
+			  <div class="form--header-container">
+				<h1 class="form--header-title">
+					Registration
+				</h1>
+		  
+				<p class="form--header-text">
+					Tell us where you live.
+				</p>
+			  </div>
+		  
+			  <input type="text" id="street" name="street" placeholder="Street" required/>
+			  <input type="text" id="brgy" name="barangay" placeholder="Barangay" required/>
+			  <input type="text" id="city" name="city" placeholder="City" required/>
+			  <input type="text" id="prov" name="province" placeholder="Provice" required/>
+			  <input type="number" id="zip" name="zipcode" placeholder="Zip Code" required/>
+			  <input type="text" id="country" name="country" placeholder="Country" required/>
+			  <button class="form__btn" id="btn-2-prev">Previous</button>
+			  <button class="form__btn" id="btn-2-next" type="submit">Submit</button>
+			
+			</div>
+			
+		</main>
+	</form>
+
+		<div class="square">
+			<ul>
+				<li></li>
+				<li></li>
+				<li></li>
+				<li></li>
+				<li></li>
+			</ul>
+		</div>
+		
+		<div class="circle">
+			<ul>
+				<li></li>
+				<li></li>
+				<li></li>
+				<li></li>
+				<li></li>
+			</ul>
+		</div>
+	</div>
+	<script src="{% static 'js/rcustomer.js' %}"></script>
+</body>
+<footer>
+	ZAFRA
+</footer>
+</html>

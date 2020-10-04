@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Product Registration Template</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+{% load static %}
+<link rel="stylesheet" href="{% static 'css/rproduct.css' %}">
+</head>
+
+<body>
+
+<div class="welcome">
+<h1>Product Registration</h1>
+<button class="button" tabindex="11" type="submit" form="form1" value="Register">Register</button> 
+  <div class="form-box">
+	<div class="input-group">  
+		<form class="input-group" action="" method="POST" id="form1">
+			{% csrf_token %}
+		<label for="ProductName">Product Name:</label><br>
+		<input type = "text" tabindex="1" class = "input-field" name="productname" id = "ProductName" placeholder = "Product Name" required>
+		<br>
+		<label for="Category">Category:</label><br>
+		<input type = "text" tabindex="2" class = "input-field" name="category" id = "Category" placeholder = "Category" >
+		<br>
+		<label for="Brand">Brand:</label><br>
+		<input type = "text" tabindex="3" class = "input-field" name="brand" id = "Brand" placeholder = "Brand" >
+		<br>
+		<label for="Color">Color:</label><br>
+		<input type = "text" tabindex="4" class = "input-field" name="color" id = "Color" placeholder = "Color" >
+		<br>
+		<label for="Size">Size/Dimensions:</label><br>
+		<input type = "text" tabindex="5" class = "input-field" name="size" id = "Size" placeholder = "Size/Dimensions" >
+		<br>
+		<label for="Price">Price:</label><br>
+		<input type = "text" tabindex="6" class = "input-field" name="price" id = "Price" placeholder = "Price" required>
+		<br>
+		<label for="Stocks">Stocks:</label><br>
+		<input type = "text" tabindex="7" class = "input-field" name="stocks" id = "Stocks" placeholder = "No Of Stocks" required>
+		<!--
+		<label for="Image">Images:</label>		
+		<input type = "file" tabindex="8" id="image1" name="image1" accept="image/*" >
+		<input type = "file" tabindex="9" id="image2" name="image2" accept="image/*" >
+		<input type = "file" tabindex="10" id="image3" name="image3" accept="image/*" >-->
+		</form>
+	</div>
+</div>
+
+	<div class="square">
+		<ul>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+		</ul>
+	</div>
+	
+	<div class="circle">
+		<ul>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+		</ul>
+	</div>
+	</div>
+</body>
+<footer>
+CABARON
+</footer>
+</html>
