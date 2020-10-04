@@ -35,6 +35,17 @@ class ProductView(View):
                 'products' : qs
             }
         return render(request,'dproduct.html',context)
+    def post(self,request):
+        if request.method == 'POST':
+            if 'btnUpdate' in request.POST:
+                pid = request.POST.get("pid")
+                print(pid)
+                return HttpResponse('yey')
+            elif 'btnDelete' in request.POST:
+                pid = request.POST.get("pid")
+                print(pid)
+                return HttpResponse('yeny')
+
 
 class RegisterProductView(View):
     def get(self,request):
