@@ -1,0 +1,13 @@
+just make sure you have
+django 3.1.2
+mysqlclient
+xampp
+name of the database is 'stable'
+so create the database first
+before
+python manage.py migrate
+
+
+how to run
+python manage.py migrate  (only for the very first)
+python manage.py runserver
