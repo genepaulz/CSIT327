@@ -316,3 +316,7 @@ ul li{
 		border-radius: 50%;
 	}
 }
+
+.btn-primary {
+    background-color: #3366ff;
+}

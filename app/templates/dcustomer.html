@@ -35,7 +35,7 @@
                             <td>{{customer.firstname}}</td>
                             <td>{{customer.lastname}}</td>
                             <td>{{customer.birthday}}</td>
-                            <td>{{customer.street}}</td>
+                            <td>{{customer.street}}, {{customer.barangay}}, {{customer.city}}, {{customer.province}}, {{customer.country}}</td>
                             <td><button type="button" class="button" data-toggle="modal" data-target="#{{customer.id}}">Update</button></td>
                             <td><button type="button" class="button" data-toggle="modal" data-target="#d{{customer.id}}">Delete</button></td>
                         </tr>
@@ -45,24 +45,43 @@
 
 
   {% for customer in customers %}
-  <form action="" method="POST" id=action>
+  <form action="" method="POST">
     {% csrf_token %}
   <!-- Modal Update -->
   <div class="modal fade" id="{{customer.id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered" role="document">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLongTitle">Modal title</h5>
+          <h5 class="modal-title" id="exampleModalLongTitle">Update {{customer.firstname}}</h5>
           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">&times;</span>
           </button>
         </div>
         <div class="modal-body">
         <input type="text" name="cid" value="{{customer.id}}" hidden>
-          {{customer.id}}        
+          <!-- {{customer.id}}         -->
+          <input type="text" name="email" value="{{customer.email}}" />
+          <input type="password" name="password" value="{{customer.password}}" /><br>
+          <input type="text" name="firstname" value="{{customer.firstname}}" />			  
+          <input type="text" name="middlename" value="{{customer.middlename}}" />
+          <input type="text" name="lastname" value="{{customer.lastname}}" /><br>
+          <label for="bday" >Birthday:</label>
+          <input type="date" name="birthday" value="{{customer.birthday|date:'Y-m-d'}}"/><br>
+          <label for="gender" >Gender:</label>
+          <select name="gender" >
+          <option value="Male">Male</option>
+          <option value="Female">Female</option>
+          <option value="NonBinary">NonBinary</option>
+          </select><br>
+          <input type="text" name="street" value="{{customer.street}}" />
+          <input type="text" name="barangay" value="{{customer.barangay}}" />
+          <input type="text" name="city" value="{{customer.city}}" />
+          <input type="text" name="province" value="{{customer.province}}" />
+          <input type="number" name="zipcode" value="{{customer.zipcode}}" />
+          <input type="text" name="country" value="{{customer.country}}" />
         </div>
         <div class="modal-footer">          
-          <button type="submit" class="btn btn-primary">Save changes</button>
+          <button type="submit" name="btnUpdate" class="btn btn-primary">Save changes</button>
           <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
         </div>
       </div>
@@ -74,14 +93,14 @@
     <div class="modal-dialog modal-dialog-centered" role="document">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLongTitle">Are you sure?</h5>
+          <h5 class="modal-title" id="exampleModalLongTitle">Are you sure you want to delete {{customer.firstname}}?</h5>
           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">&times;</span>
           </button>
         </div>        
         <div class="modal-footer">
             <input type="text" name="cid" value="{{customer.id}}" hidden>
-            <button type="submit" class="btn btn-primary">Yes</button>
+            <button type="submit" name="btnDelete" class="btn btn-primary">Yes</button>
           <button type="button" class="btn btn-secondary" data-dismiss="modal">No</button>          
         </div>
       </div>
@@ -114,14 +133,7 @@
         </div>
         <script src="{% static 'js/dcustomer.js' %}"></script>
         <script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
-        <script src="{% static 'js/bootstrap.min.js' %}"></script>
-        <script>
-          $( document ).ready(function() {
-             if('{{message}}' != ""){
-              alert( '{{message}}' );
-             }
-          });
-        </script>
+        <script src="{% static 'js/bootstrap.min.js' %}"></script>        
     </body>
     <footer>
 	ZAFRA

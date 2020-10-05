@@ -1,7 +1,7 @@
 from django.shortcuts import render,redirect
 from django.views.generic import View,TemplateView
 from django.http import HttpResponse
-from .models import Admin,Customer,Product
+from .models import Admin,Person,Customer,Product
 from .forms import adminForm,customerForm,productForm
 
 # Create your views here.
@@ -40,11 +40,30 @@ class ProductView(View):
             if 'btnUpdate' in request.POST:
                 pid = request.POST.get("pid")
                 print(pid)
-                return HttpResponse('yey')
+                pname = request.POST.get("productname")
+                category = request.POST.get("category")
+                brand = request.POST.get("brand")
+                color = request.POST.get("color")
+                size = request.POST.get("size")
+                price = request.POST.get("price")
+                stocks = request.POST.get("stocks")
+                product = Product.objects.filter(id=pid).update(
+                    productname = pname,
+                    category = category,
+                    brand = brand,
+                    color = color,
+                    size = size,
+                    price = price,
+                    stocks = stocks
+                )
+                return redirect('app:products_view')
+                # return HttpResponse('yey')
             elif 'btnDelete' in request.POST:
                 pid = request.POST.get("pid")
                 print(pid)
-                return HttpResponse('yeny')
+                product =  Product.objects.filter(id = pid).delete()
+                return redirect('app:products_view')
+                # return HttpResponse('yeny')
 
 
 class RegisterProductView(View):
@@ -90,6 +109,47 @@ class CustomerView(View):
                 'customers' : qs
             }
         return render(request,'dcustomer.html',context)
+    
+    def post(self,request):
+        if request.method == 'POST':
+            if 'btnUpdate' in request.POST:
+                cid = request.POST.get("cid")
+                email = request.POST.get("email")
+                password = request.POST.get("password")
+                firstname = request.POST.get("firstname")
+                middlename = request.POST.get("middlename")
+                lastname = request.POST.get("lastname")
+                birthday = request.POST.get("birthday")
+                gender = request.POST.get("gender")
+                street = request.POST.get("street")
+                barangay = request.POST.get("barangay")
+                city = request.POST.get("city")
+                province = request.POST.get("province")
+                zipcode = request.POST.get("zipcode")
+                country = request.POST.get("country")
+                customer = Customer.objects.filter(person_ptr_id=cid).update(
+                    email = email,
+                    password = password,
+                    firstname = firstname,
+                    middlename = middlename,
+                    lastname = lastname,
+                    birthday = birthday,
+                    gender = gender,
+                    street = street,
+                    barangay = barangay,
+                    city = city,
+                    province = province,
+                    zipcode = zipcode,
+                    country = country
+                )                
+                return redirect('app:customers_view')
+            elif 'btnDelete' in request.POST:
+                cid = request.POST.get("cid")
+                customer = Customer.objects.filter(person_ptr_id=cid).delete()
+                person = Person.objects.filter(id=cid).delete()
+                return redirect('app:customers_view')
+        else:
+            return render(request,'dcustomer.html')
 
 class RegisterCustomerView(View):
     def get(self,request):
