@@ -17,31 +17,40 @@
                     <button class="button" id="customerButton">Customer Report</button>
                     <a href="{% url 'app:reg_customers_view' %}"><button class="button">Add Customer</button></a>
                 </div>              
+                
+                <div class="scrollbar scrollbar-sunny-morning" id="content">
+                  <div class="force-overflow">
                     
-                <div class="content" id="content">
-                    <table border="1px">
-                        <tr>
-                            <th>Date Registered</th>
-                            <th>Firstname</th>
-                            <th>Lastname</th>
-                            <th>Date of Birth</th>
-                            <th>Address</th>
-                            <th></th>
-                            <th></th>
-                        </tr>
-                        {% for customer in customers %}
-                        <tr>
-                            <td>{{customer.dateregistered}}</td>
-                            <td>{{customer.firstname}}</td>
-                            <td>{{customer.lastname}}</td>
-                            <td>{{customer.birthday}}</td>
-                            <td>{{customer.street}}, {{customer.barangay}}, {{customer.city}}, {{customer.province}}, {{customer.country}}</td>
-                            <td><button type="button" class="button" data-toggle="modal" data-target="#{{customer.id}}">Update</button></td>
-                            <td><button type="button" class="button" data-toggle="modal" data-target="#d{{customer.id}}">Delete</button></td>
-                        </tr>
-                        {% endfor %}
-                        </table>
+                      <table>
+                        <thead>
+                          <tr>
+                              <th>Date Registered</th>
+                              <th>Firstname</th>
+                              <th>Lastname</th>
+                              <th>Date of Birth</th>
+                              <th>Address</th>
+                              <th></th>
+                              <th></th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          {% for customer in customers %}
+                          <tr>
+                              <td>{{customer.dateregistered}}</td>
+                              <td>{{customer.firstname}}</td>
+                              <td>{{customer.lastname}}</td>
+                              <td>{{customer.birthday}}</td>
+                              <td>{{customer.street}}, {{customer.barangay}}, {{customer.city}}, {{customer.province}}, {{customer.country}}</td>
+                              <td><button type="button" class="button" data-toggle="modal" data-target="#{{customer.id}}">Update</button></td>
+                              <td><button type="button" class="button" data-toggle="modal" data-target="#d{{customer.id}}">Delete</button></td>
+                          </tr>
+                          {% endfor %}
+                        </tbody>
+                      </table>
+
+                  </div>
                 </div>
+                
 
 
   {% for customer in customers %}
@@ -135,7 +144,7 @@
         <script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
         <script src="{% static 'js/bootstrap.min.js' %}"></script>        
     </body>
-    <footer>
+    <!-- <footer>
 	ZAFRA
-    </footer>
+    </footer> -->
 </html>
