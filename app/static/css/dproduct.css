@@ -183,6 +183,22 @@
 	animation-duration: 0.5s;
 	z-index: 1;
 }
+#contentbuy{
+    background: #fff;
+    margin-left: 10%;
+    align-content: center;
+    text-align: center;
+    position: relative;
+    width: 80%;
+    height: 80%;
+    display: block;
+    /* box-shadow: 0.2rem 0.2rem 0.5rem rgba(51, 51, 51, 0.2); */
+    border-radius: 1rem;
+    overflow-y: auto;
+    animation: fadeIn;
+	animation-duration: 0.5s;
+	z-index: 1;
+}
 
 
 table{

@@ -1,5 +1,5 @@
 from django import forms
-from .models import Product,Customer,Admin
+from .models import Product,Customer,Admin,Buy
 
 class adminForm(forms.ModelForm):
 
@@ -36,3 +36,13 @@ class customerForm(forms.ModelForm):
             'email',
             'password',
             ]
+
+class buyForm(forms.ModelForm):
+    
+    class Meta:
+        model = Buy
+        fields = [
+            'customerid',
+            'productid',
+            'quantity'
+        ]

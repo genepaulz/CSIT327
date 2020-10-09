@@ -9,4 +9,6 @@ urlpatterns = [
     path('regproducts/',views.RegisterProductView.as_view(),name="reg_products_view"),
     path('customers/',views.CustomerView.as_view(),name="customers_view"),
     path('regcustomers/',views.RegisterCustomerView.as_view(),name="reg_customers_view"),
+    path('demo/',views.DemoView.as_view(),name="demo_view"),
+    path('buy/',views.DemobView.as_view(),name="demob_view"),
 ]

@@ -1,8 +1,8 @@
 from django.shortcuts import render,redirect
 from django.views.generic import View,TemplateView
 from django.http import HttpResponse
-from .models import Admin,Person,Customer,Product
-from .forms import adminForm,customerForm,productForm
+from .models import Admin,Person,Customer,Product,Buy
+from .forms import adminForm,customerForm,productForm,buyForm
 
 # Create your views here.
 
@@ -186,3 +186,48 @@ class RegisterCustomerView(View):
         else:
             print(form.errors)
             return HttpResponse('Invalid')
+
+class DemoView(View):
+    def get(self,request):
+        return render(request,'demo.html')
+
+    def post(self,request):        
+        user = request.POST.get("user")        
+        password = request.POST.get("pass")
+        q = Customer.objects.get(email = user)
+        if q.password == password:
+            return redirect('app:demob_view')
+        else:
+            return HttpResponse("User does not exist!")
+
+class DemobView(View):
+    def get(self,request):
+        qs = Product.objects.all()
+        qs1 = Customer.objects.all()
+        for product in qs:
+            context = {
+                'products' : qs,
+                'customers' : qs1
+            }
+        return render(request,'demob.html',context)
+    
+    def post(self,request):
+        if request.method == 'POST':
+            if 'btnBuy' in request.POST:
+                form = buyForm(request.POST)
+                cid = request.POST.get("cid")
+                pid = request.POST.get("pid")
+                stocks = request.POST.get("stocks")
+                product = Product.objects.get(id=pid)
+                stock = int(stocks)
+                newStock = product.stocks - stock
+
+                updateProduct = Product.objects.filter(id=pid).update(stocks=newStock)
+
+                form = Buy(
+                    customerid = cid,
+                    productid = pid,
+                    quantity = stocks
+                )          
+                form.save()      
+                return redirect('app:demob_view')

@@ -46,3 +46,11 @@ class Customer(Person):
 
     class Meta:
         db_table = "Customer"
+
+class Buy(models.Model):
+    customerid = models.IntegerField()
+    productid = models.IntegerField()
+    quantity = models.IntegerField()
+
+    class Meta:
+        db_table = "Buy"

@@ -1,0 +1,107 @@
+<html>
+    <head>
+        <title>Dashboard</title>
+        {% load static %}
+        <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}"> 
+        <link rel="stylesheet" href="{% static 'css/dproduct.css' %}">        
+    </head>
+    <body>
+        <div class="background">
+                <div class="top-bar">
+                    <a href="{% url 'app:demo_view' %}">
+                        <p class="nbutton">&#8592;</p>
+                    </a>
+                    <p class="h1">Welcome Dear Customer!</p><br>
+                </div>
+                
+                <div class="scrollbar scrollbar-sunny-morning" id="contentbuy">
+                  <div class="force-overflow">
+                    <table>
+                      <thead>
+                        <tr>
+                            <th>Category</th>
+                            <th>Brand</th>
+                            <th>Color</th>
+                            <th>Size/Dimensions</th>
+                            <th>Name</th>
+                            <th>Price</th>
+                            <th>No. of Items Left</th>
+                            <th></th>
+                        </tr> 
+                      </thead>
+                      <tbody>
+                        {% for product in products %}
+                        <tr>
+                            <td>{{product.category}}</td>
+                            <td>{{product.brand}}</td>
+                            <td>{{product.color}}</td>
+                            <td>{{product.size}}</td>
+                            <td>{{product.productname}}</td>
+                            <td>{{product.price}}</td>
+                            <td>{{product.stocks}}</td>
+                            <td><button type="button" class="button" data-toggle="modal" data-target="#{{product.id}}">Buy</button></td>
+                        </tr>
+                        {% endfor %}    
+                      </tbody>                                          
+                    </table>
+                  </div>
+                </div>
+            
+                {% for product in products %}
+                <form action="" method="POST">
+                  {% csrf_token %}
+                <!-- Modal Update -->
+                <div class="modal fade" id="{{product.id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                  <div class="modal-dialog modal-dialog-centered" role="document">
+                    <div class="modal-content">
+                      <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLongTitle">Buy {{product.productname}}</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                          <span aria-hidden="true">&times;</span>
+                        </button>
+                      </div>
+                      <div class="modal-body">
+                      <input type="text" name="pid" value="{{product.id}}" hidden>                        
+                      <input type="text" name="cid" value="9" hidden>
+                        <label for="Stocks">Quantity:</label><br>
+                        <input type = "number" tabindex="7" class = "input-field" name="stocks" id = "Stocks" value = "1" min="1" max="{{product.stocks}}">
+                      </div>
+                      <div class="modal-footer">
+                        <button type="submit" name="btnBuy" class="btn btn-primary">Buy</button>
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>          
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                
+              </form>
+                {% endfor %}
+
+            <div class="square">
+                <ul>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                </ul>
+            </div>
+            
+            <div class="circle">
+                <ul>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                </ul>
+            </div>
+        </div>
+        <script src="{% static 'js/dproduct.js' %}"></script>
+        <script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
+        <script src="{% static 'js/bootstrap.min.js' %}"></script>
+    </body>
+    <!-- <footer>
+	ZAFRA
+    </footer> -->
+</html>
