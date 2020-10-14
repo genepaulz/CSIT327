@@ -22,31 +22,27 @@
                       <thead>
                         <tr>
                             <th>Date Registered</th>
-                            <th>Category</th>
                             <th>Brand</th>
-                            <th>Color</th>
-                            <th>Size/Dimensions</th>
                             <th>Name</th>
                             <th>Price</th>
-                            <th>No. of Items</th>
+                            <th>Stocks</th>
                             <th></th>
                             <th></th>
                         </tr> 
                       </thead>
                       <tbody>
                         {% for product in products %}
+                        {% if product.deleted == 0 %}
                         <tr>
                             <td>{{product.dateregistered}}</td>
-                            <td>{{product.category}}</td>
                             <td>{{product.brand}}</td>
-                            <td>{{product.color}}</td>
-                            <td>{{product.size}}</td>
                             <td>{{product.productname}}</td>
                             <td>{{product.price}}</td>
                             <td>{{product.stocks}}</td>
                             <td><button type="button" class="button" data-toggle="modal" data-target="#{{product.id}}">Update</button></td>
                             <td><button type="button" class="button" data-toggle="modal" data-target="#d{{product.id}}">Delete</button></td>
                         </tr>
+                        {% endif %}
                         {% endfor %}    
                       </tbody>                                          
                     </table>

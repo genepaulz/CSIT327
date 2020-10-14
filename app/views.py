@@ -58,8 +58,8 @@ class ProductView(View):
                 return redirect('app:products_view')
             elif 'btnDelete' in request.POST:
                 pid = request.POST.get("pid")
-                print(pid)
-                product =  Product.objects.filter(id = pid).delete()
+                # print(pid)
+                product =  Product.objects.filter(id = pid).update(deleted = 1)
                 return redirect('app:products_view')
 
 
@@ -140,8 +140,11 @@ class CustomerView(View):
                 return redirect('app:customers_view')
             elif 'btnDelete' in request.POST:
                 cid = request.POST.get("cid")
-                customer = Customer.objects.filter(person_ptr_id=cid).delete()
-                person = Person.objects.filter(id=cid).delete()
+                # print('hello')
+                # customer = Customer.objects.filter(person_ptr_id=cid).delete()
+                # person = Person.objects.filter(id=cid).delete()
+                customer = Customer.objects.filter(person_ptr_id=cid).update(deleted = 1)
+                
                 return redirect('app:customers_view')
         else:
             return render(request,'dcustomer.html')

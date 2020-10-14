@@ -31,6 +31,7 @@
                       </thead>
                       <tbody>
                         {% for product in products %}
+                        {% if product.stocks > 0 %}
                         <tr>
                             <td>{{product.category}}</td>
                             <td>{{product.brand}}</td>
@@ -41,6 +42,18 @@
                             <td>{{product.stocks}}</td>
                             <td><button type="button" class="button" data-toggle="modal" data-target="#{{product.id}}">Buy</button></td>
                         </tr>
+                        {% else %}
+                        <tr>
+                          <td>{{product.category}}</td>
+                          <td>{{product.brand}}</td>
+                          <td>{{product.color}}</td>
+                          <td>{{product.size}}</td>
+                          <td>{{product.productname}}</td>
+                          <td>{{product.price}}</td>
+                          <td>{{product.stocks}}</td>
+                          <td><button type="button" disabled="disabled" class="button"><strike>Sold Out</strike></button></td>
+                      </tr>
+                        {% endif %}
                         {% endfor %}    
                       </tbody>                                          
                     </table>

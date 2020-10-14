@@ -35,15 +35,17 @@
                         </thead>
                         <tbody>
                           {% for customer in customers %}
+                          {% if customer.deleted == 0 %}
                           <tr>
                               <td>{{customer.dateregistered}}</td>
                               <td>{{customer.firstname}}</td>
                               <td>{{customer.lastname}}</td>
                               <td>{{customer.birthday}}</td>
-                              <td>{{customer.street}}, {{customer.barangay}}, {{customer.city}}, {{customer.province}}, {{customer.country}}</td>
+                              <td>{{customer.street}}, {{customer.barangay}}, {{customer.city}}, {{customer.province}}, {{customer.zipcode}}, {{customer.country}}</td>
                               <td><button type="button" class="button" data-toggle="modal" data-target="#{{customer.id}}">Update</button></td>
                               <td><button type="button" class="button" data-toggle="modal" data-target="#d{{customer.id}}">Delete</button></td>
                           </tr>
+                          {% endif %}
                           {% endfor %}
                         </tbody>
                       </table>
@@ -69,7 +71,7 @@
         <div class="modal-body">
         <input type="text" name="cid" value="{{customer.id}}" hidden>
           <!-- {{customer.id}}         -->
-          <input type="text" name="email" value="{{customer.email}}" />
+          <input type="email" name="email" value="{{customer.email}}" />
           <input type="password" name="password" value="{{customer.password}}" /><br>
           <input type="text" name="firstname" value="{{customer.firstname}}" />			  
           <input type="text" name="middlename" value="{{customer.middlename}}" />

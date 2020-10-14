@@ -18,7 +18,8 @@ class Product(models.Model):
     color = models.CharField(max_length = 30)
     size = models.CharField(max_length = 20)
     price = models.CharField(max_length = 50)
-    stocks = models.IntegerField()    
+    stocks = models.IntegerField()
+    deleted = models.IntegerField(max_length=1,default=0)    
 
     class Meta:
         db_table = "Product"
@@ -42,7 +43,7 @@ class Customer(Person):
     dateregistered = models.DateField(auto_now=True)
     email = models.CharField(max_length = 200)
     password = models.CharField(max_length = 200)
-    
+    deleted = models.IntegerField(max_length=1,default=0)
 
     class Meta:
         db_table = "Customer"
