@@ -71,25 +71,33 @@
         <div class="modal-body">
         <input type="text" name="cid" value="{{customer.id}}" hidden>
           <!-- {{customer.id}}         -->
-          <input type="email" name="email" value="{{customer.email}}" />
-          <input type="password" name="password" value="{{customer.password}}" /><br>
-          <input type="text" name="firstname" value="{{customer.firstname}}" />			  
-          <input type="text" name="middlename" value="{{customer.middlename}}" />
-          <input type="text" name="lastname" value="{{customer.lastname}}" /><br>
-          <label for="bday" >Birthday:</label>
-          <input type="date" name="birthday" value="{{customer.birthday|date:'Y-m-d'}}"/><br>
-          <label for="gender" >Gender:</label>
-          <select name="gender" >
-          <option value="Male">Male</option>
-          <option value="Female">Female</option>
-          <option value="NonBinary">NonBinary</option>
-          </select><br>
-          <input type="text" name="street" value="{{customer.street}}" />
-          <input type="text" name="barangay" value="{{customer.barangay}}" />
-          <input type="text" name="city" value="{{customer.city}}" />
-          <input type="text" name="province" value="{{customer.province}}" />
-          <input type="number" name="zipcode" value="{{customer.zipcode}}" />
-          <input type="text" name="country" value="{{customer.country}}" />
+          <pre>
+<label for="email" >Email</label>                   <label for="password">Password</label>
+<input type="email" name="email" value="{{customer.email}}" /> <input type="password" name="password" value="{{customer.password}}" />
+<label for="firstname">Firstname</label>               <label for="middlename">Middlename</label>             <label for="lastname">Lastname</label>
+<input type="text" name="firstname" value="{{customer.firstname}}" /> <input type="text" name="middlename" value="{{customer.middlename}}" /> <input type="text" name="lastname" value="{{customer.lastname}}" />
+<label for="bday" >Birthday</label>                <label for="gender" >Gender</label>
+<input type="date" name="birthday" value="{{customer.birthday|date:'Y-m-d'}}"/>    <select name="gender">
+{% if customer.gender == 'Male' %}
+  <option value="Male">Male</option>
+  <option value="Female">Female</option>
+  <option value="NonBinary">NonBinary</option>
+{% elif customer.gender == 'Female' %}
+  <option value="Female">Female</option>  
+  <option value="Male">Male</option>  
+  <option value="NonBinary">NonBinary</option>
+{% else %}
+  <option value="NonBinary">NonBinary</option>
+  <option value="Male">Male</option>
+  <option value="Female">Female</option>
+{% endif %}
+
+</select>
+<label for="street">Street</label>                  <label for="barangay">Barangay</label>               <label for="city">City</label>  
+<input type="text" name="street" value="{{customer.street}}" /> <input type="text" name="barangay" value="{{customer.barangay}}" /> <input type="text" name="city" value="{{customer.city}}" />
+<label for="province">Province</label>                <label for="zipcode">Zipcode</label>                <label for="country">Country</label>
+<input type="text" name="province" value="{{customer.province}}" /> <input type="number" name="zipcode" value="{{customer.zipcode}}" /> <input type="text" name="country" value="{{customer.country}}" />
+          </pre>
         </div>
         <div class="modal-footer">          
           <button type="submit" name="btnUpdate" class="btn btn-primary">Save changes</button>

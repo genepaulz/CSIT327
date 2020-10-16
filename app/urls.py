@@ -11,4 +11,5 @@ urlpatterns = [
     path('regcustomers/',views.RegisterCustomerView.as_view(),name="reg_customers_view"),
     path('demo/',views.DemoView.as_view(),name="demo_view"),
     path('buy/',views.DemobView.as_view(),name="demob_view"),
+    path('end/',views.EndView.as_view(),name="end_view"),
 ]

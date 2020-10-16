@@ -139,11 +139,13 @@ class CustomerView(View):
                 )                
                 return redirect('app:customers_view')
             elif 'btnDelete' in request.POST:
+                print('hello')
                 cid = request.POST.get("cid")
-                # print('hello')
+                
                 # customer = Customer.objects.filter(person_ptr_id=cid).delete()
                 # person = Person.objects.filter(id=cid).delete()
-                customer = Customer.objects.filter(person_ptr_id=cid).update(deleted = 1)
+                print('hello')
+                customer = Customer.objects.filter(person_ptr_id=cid).update(deleted = 1)                
                 
                 return redirect('app:customers_view')
         else:
@@ -234,3 +236,7 @@ class DemobView(View):
                 )          
                 form.save()      
                 return redirect('app:demob_view')
+
+class EndView(View):
+    def get(self,request):
+        return render(request,'end.html')
